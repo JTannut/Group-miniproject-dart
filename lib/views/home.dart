@@ -3,7 +3,7 @@ import 'package:flutter_firebase_connect/views/login.dart';
 import 'package:flutter_firebase_connect/views/regisform.dart';
 import 'package:flutter_firebase_connect/views/usersdata.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter_firebase_connect/views/profile.dart';
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
 
@@ -41,20 +41,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.blueGrey,
       body: SafeArea(
+
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+
                 child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Token : '),
-                  Align(alignment: Alignment.center, child: Text('$uid')),
-                ],
+
+                  child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+
               ),
             )),
             Container(
@@ -99,7 +102,22 @@ class _HomeState extends State<Home> {
                             },
                             child: Text('Login')),
                       ),
-                    ),
+
+                    ),Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => profile(),
+                                  ));
+                            },
+                            child: Text('Profle')),
+                      ),
+                    )
                   ],
                 ),
               ),

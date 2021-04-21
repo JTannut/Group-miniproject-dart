@@ -173,7 +173,7 @@ class _usersdataState extends State<usersdata> {
   }
   Widget _bsubmit() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
+      padding: EdgeInsets.symmetric(vertical: 15.0),
       width: double.infinity,
 
       child: RaisedButton(
@@ -221,7 +221,7 @@ class _usersdataState extends State<usersdata> {
                   builder: (context) => listdog(),
                 ));
           },
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(11.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
@@ -229,6 +229,39 @@ class _usersdataState extends State<usersdata> {
         color: Colors.white,
         child: Text(
           'LIST',
+          style: TextStyle(
+            color: Color(0xFF527DAA),
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
+  Widget _buildhome() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10.0),
+      width: double.infinity,
+      child: RaisedButton(
+
+        elevation: 5.0,
+        onPressed: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Login(),
+              ));
+        },
+        padding: EdgeInsets.all(10.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+
+        color: Colors.white,
+        child: Text(
+          'Home',
           style: TextStyle(
             color: Color(0xFF527DAA),
             letterSpacing: 1.5,
@@ -298,6 +331,7 @@ class _usersdataState extends State<usersdata> {
                       SizedBox(height: 30.0),
                         _bsubmit(),
                          _list(),
+                      _buildhome(),
                     ],
                   ),
                 ),
