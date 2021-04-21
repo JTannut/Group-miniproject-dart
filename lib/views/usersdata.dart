@@ -27,7 +27,6 @@ class _usersdataState extends State<usersdata> {
   TextEditingController agecontroller = TextEditingController();
   TextEditingController weightcontroller = TextEditingController();
 
-
   Widget _name() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +46,7 @@ class _usersdataState extends State<usersdata> {
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
-             controller:namecontroller,
+            controller: namecontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -83,12 +82,11 @@ class _usersdataState extends State<usersdata> {
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
-            controller:speciescontroller,
+            controller: speciescontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-
                 Icons.pets_rounded,
                 color: Colors.white,
               ),
@@ -100,6 +98,7 @@ class _usersdataState extends State<usersdata> {
       ],
     );
   }
+
   Widget _weight() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +118,7 @@ class _usersdataState extends State<usersdata> {
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
-            controller:weightcontroller,
+            controller: weightcontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -135,6 +134,7 @@ class _usersdataState extends State<usersdata> {
       ],
     );
   }
+
   Widget _age() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,8 +154,7 @@ class _usersdataState extends State<usersdata> {
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
-
-            controller:agecontroller,
+            controller: agecontroller,
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -171,108 +170,117 @@ class _usersdataState extends State<usersdata> {
       ],
     );
   }
+
   Widget _bsubmit() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0),
       width: double.infinity,
-
-      child: RaisedButton(
-
-        elevation: 5.0,
-        onPressed: () async {
-          final res = ActionDog().addNewDog({
-            "name": namecontroller.text.trim(),
-            "species": speciescontroller.text.trim(),
-            "weight": weightcontroller.text.trim(),
-            "age": agecontroller.text.trim(),
-          });
-          print(res);
-        },
-        padding: EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-
-        color: Colors.white,
-        child: Text(
-          'SUBMIT',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+      child: SizedBox(
+        width: 40,
+        height: 55,
+        child: RaisedButton(
+          onPressed: () async {
+            final res = ActionDog().addNewDog({
+              "name": namecontroller.text.trim(),
+              "species": speciescontroller.text.trim(),
+              "weight": weightcontroller.text.trim(),
+              "age": agecontroller.text.trim(),
+            });
+            print(res);
+          },
+          padding: EdgeInsets.all(15.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          color: Colors.white,
+          child: Text(
+            'SUBMIT',
+            style: TextStyle(
+              color: Color(0xFF527DAA),
+              letterSpacing: 1.5,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans',
+            ),
           ),
         ),
       ),
     );
   }
+
   Widget _list() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 0.0),
+      padding: EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
-      child: RaisedButton(
-
-        elevation: 5.0,
-        onPressed: () {
+      child: SizedBox(
+        width: 40,
+        height: 55,
+        child: RaisedButton(
+          onPressed: () {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => listdog(),
                 ));
           },
-        padding: EdgeInsets.all(11.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-
-        color: Colors.white,
-        child: Text(
-          'LIST',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+          padding: EdgeInsets.all(11.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          color: Colors.white,
+          child: Text(
+            'LIST',
+            style: TextStyle(
+              color: Color(0xFF527DAA),
+              letterSpacing: 1.5,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans',
+            ),
           ),
         ),
       ),
     );
   }
+
   Widget _buildhome() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       width: double.infinity,
-      child: RaisedButton(
-
-        elevation: 5.0,
-        onPressed: () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Login(),
-              ));
-        },
-        padding: EdgeInsets.all(10.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-
-        color: Colors.white,
-        child: Text(
-          'Home',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: 40,
+          height: 55,
+          child: RaisedButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login(),
+                  ));
+            },
+            padding: EdgeInsets.all(10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            color: Colors.white,
+            child: Text(
+              'Home',
+              style: TextStyle(
+                color: Color(0xFF527DAA),
+                letterSpacing: 1.5,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'OpenSans',
+              ),
+            ),
           ),
         ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -310,7 +318,6 @@ class _usersdataState extends State<usersdata> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-
                       Text(
                         'Insert Data',
                         style: TextStyle(
@@ -320,17 +327,14 @@ class _usersdataState extends State<usersdata> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
-
-                      SizedBox
-                        (height: 30.0),
+                      SizedBox(height: 30.0),
                       _name(),
                       _spea(),
                       _weight(),
                       _age(),
                       SizedBox(height: 30.0),
-                        _bsubmit(),
-                         _list(),
+                      _bsubmit(),
+                      _list(),
                       _buildhome(),
                     ],
                   ),

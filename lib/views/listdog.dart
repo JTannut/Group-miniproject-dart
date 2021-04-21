@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_connect/views/login.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_firebase_connect/utilities/constants.dart';
+
 // ignore: camel_case_types
 class listdog extends StatefulWidget {
   listdog({Key key}) : super(key: key);
@@ -29,16 +30,14 @@ class _listdogState extends State<listdog> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Color(0xFF8BAFDB),
           title: Text('Animal Data'),
         ),
         body: Container(
-
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -51,22 +50,17 @@ class _listdogState extends State<listdog> {
               ],
               stops: [0.1, 0.4, 0.7, 0.9],
             ),
-        ),
-
+          ),
           child: ListView.builder(
             itemCount: dogs.length,
             itemBuilder: (context, index) {
               return Column(
                 children: [
                   Container(
-
                     child: Padding(
                       padding: const EdgeInsets.all(14),
-
                       child: Container(
-
                         color: Colors.white,
-
                         width: 350,
                         child: Column(
                           children: [
@@ -77,7 +71,7 @@ class _listdogState extends State<listdog> {
                             Padding(
                               padding: const EdgeInsets.all(10),
                               child:
-                              Text('Species:  ${dogs[index]['species']}'),
+                                  Text('Species:  ${dogs[index]['species']}'),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(10),
@@ -95,7 +89,6 @@ class _listdogState extends State<listdog> {
                   Container(
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 0.0),
-
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -137,32 +130,31 @@ class _listdogState extends State<listdog> {
                               width: 100,
                               height: 50,
                               child: RaisedButton(
-                              elevation: 5.0,
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => usersdata(),
+                                elevation: 5.0,
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => usersdata(),
+                                    ),
+                                  );
+                                },
+                                padding: EdgeInsets.all(15.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
+                                color: Colors.white,
+                                child: Text(
+                                  'Insert',
+                                  style: TextStyle(
+                                    color: Color(0xFF527DAA),
+                                    letterSpacing: 1.5,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'OpenSans',
                                   ),
-                                );
-                              },
-                              padding: EdgeInsets.all(15.0),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                              color: Colors.white,
-                              child: Text(
-                                'Insert',
-                                style: TextStyle(
-                                  color: Color(0xFF527DAA),
-                                  letterSpacing: 1.5,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'OpenSans',
                                 ),
                               ),
-                            ),
-
                             ),
                           ),
                         ],
@@ -176,5 +168,3 @@ class _listdogState extends State<listdog> {
         ));
   }
 }
-
-

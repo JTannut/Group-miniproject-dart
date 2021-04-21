@@ -13,6 +13,7 @@ class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
+
 class _LoginState extends State<Login> {
   checkLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -23,7 +24,6 @@ class _LoginState extends State<Login> {
             builder: (context) => Home(),
           ));
     }
-
   }
 
   Widget _buildEmailTF() {
@@ -46,7 +46,6 @@ class _LoginState extends State<Login> {
               fontFamily: 'OpenSans',
             ),
             controller: emailController,
-
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -62,6 +61,7 @@ class _LoginState extends State<Login> {
       ],
     );
   }
+
   Widget _buildPasswordTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +72,6 @@ class _LoginState extends State<Login> {
         ),
         SizedBox(height: 10.0),
         Container(
-
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
@@ -98,15 +97,17 @@ class _LoginState extends State<Login> {
       ],
     );
   }
+
   Widget _buildLoginBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
+      child: SizedBox(
+        height: 55,
+        child: RaisedButton(
+          elevation: 5.0,
           onPressed: () async {
-            SharedPreferences prefs =
-            await SharedPreferences.getInstance();
+            SharedPreferences prefs = await SharedPreferences.getInstance();
 
             final result = await Auth().signInWithEmail(
               email: emailController.text.trim(),
@@ -114,9 +115,7 @@ class _LoginState extends State<Login> {
             );
             print('uid : $result');
 
-            prefs
-                .setString('uidToken', result)
-                .whenComplete(() {
+            prefs.setString('uidToken', result).whenComplete(() {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -124,30 +123,34 @@ class _LoginState extends State<Login> {
                   ));
             });
           },
-        padding: EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        color: Colors.white,
-        child: Text(
-          'LOGIN',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+          padding: EdgeInsets.all(15.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          color: Colors.white,
+          child: Text(
+            'LOGIN',
+            style: TextStyle(
+              color: Color(0xFF527DAA),
+              letterSpacing: 1.5,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans',
+            ),
           ),
         ),
       ),
     );
   }
+
   Widget _buildregister() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 0.0),
       width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
+      child: SizedBox(
+        height: 55,
+        child: RaisedButton(
+          elevation: 5.0,
           onPressed: () {
             Navigator.pushReplacement(
                 context,
@@ -155,29 +158,32 @@ class _LoginState extends State<Login> {
                   builder: (context) => regisform(),
                 ));
           },
-        padding: EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        color: Colors.white,
-        child: Text(
-          'REGISTER',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+          padding: EdgeInsets.all(15.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          color: Colors.white,
+          child: Text(
+            'REGISTER',
+            style: TextStyle(
+              color: Color(0xFF527DAA),
+              letterSpacing: 1.5,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans',
+            ),
           ),
         ),
       ),
     );
   }
+
   @override
   void initState() {
     checkLogin();
     super.initState();
   }
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -217,7 +223,6 @@ class _LoginState extends State<Login> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-
                       Text(
                         'Sign In',
                         style: TextStyle(
@@ -227,14 +232,10 @@ class _LoginState extends State<Login> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
-
-                      SizedBox
-                        (height: 30.0),
+                      SizedBox(height: 30.0),
                       _buildEmailTF(),
                       SizedBox(
                         height: 30.0,
-
                       ),
                       _buildPasswordTF(),
                       _buildLoginBtn(),

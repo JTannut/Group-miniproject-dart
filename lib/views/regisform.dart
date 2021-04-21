@@ -54,7 +54,7 @@ class _regisformState extends State<regisform> {
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.email,
+                Icons.insert_emoticon_sharp,
                 color: Colors.white,
               ),
               hintText: 'Enter your Fristname',
@@ -91,7 +91,7 @@ class _regisformState extends State<regisform> {
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.email,
+                Icons.insert_emoticon_outlined,
                 color: Colors.white,
               ),
               hintText: 'Enter your Lastname',
@@ -131,7 +131,7 @@ class _regisformState extends State<regisform> {
               contentPadding: EdgeInsets.only(top: 14.0),
 
               prefixIcon: Icon(
-                Icons.email,
+                Icons.home_work_outlined,
                 color: Colors.white,
               ),
               hintText: 'Enter your Address',
@@ -167,7 +167,7 @@ class _regisformState extends State<regisform> {
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.email,
+                Icons.perm_phone_msg_outlined,
                 color: Colors.white,
               ),
               hintText: 'Enter your Phone ',
@@ -239,7 +239,7 @@ class _regisformState extends State<regisform> {
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.email,
+                Icons.lock_outline_rounded ,
                 color: Colors.white,
               ),
               hintText: 'Enter your Password ',
